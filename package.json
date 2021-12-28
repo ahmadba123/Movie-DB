@@ -1,7 +1,7 @@
 {
-  "name": "movie-db",
+  "name": "badawi",
   "version": "1.0.0",
-  "description": "or CMDB for short",
+  "description": "movie-db",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
