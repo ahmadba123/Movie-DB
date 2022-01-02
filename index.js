@@ -54,7 +54,7 @@ app.get("/search", (req, res) => {
 
 app.listen(port, () => console.log(`the server started at http://localhost:${port} `
 ))
-//step 5
+
 
 const movies = [
   { title: "Jaws", year: 1975, rating: 8 },
