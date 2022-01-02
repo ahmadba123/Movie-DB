@@ -23,7 +23,7 @@ app.get("/time", (req, res) => {
     message: edate.getHours() + ":" + edate.getSeconds(),
   });
 });
-//step5
+//step4
 app.get(["/hello", "/hello/:id"], (req, res) => {
   msg = "hello";
   if (typeof req.params.id != "undefined") { msg += ", " + req.params.id; }
@@ -54,3 +54,32 @@ app.get("/search", (req, res) => {
 
 app.listen(port, () => console.log(`the server started at http://localhost:${port} `
 ))
+//step 5
+
+const movies = [
+  { title: "Jaws", year: 1975, rating: 8 },
+  { title: "Avatar", year: 2009, rating: 7.8 },
+  { title: "Brazil", year: 1985, rating: 8 },
+  { title: "الإرهاب والكباب", year: 1992, rating: 6.2 },
+];
+
+// Add movie
+
+app.get("/movies/add", (req, res) => {});
+
+// Get movie
+
+app.get("/movies/get", (req, res) => {
+  res.send({
+    status: 200,
+    data: movies,
+  });
+});
+
+// Edit movie
+
+app.get("/movies/edit", (req, res) => {});
+
+// Delete movie
+
+app.get("/movies/delete", (req, res) => {});
