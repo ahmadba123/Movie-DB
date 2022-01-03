@@ -57,10 +57,10 @@ app.listen(port, () => console.log(`the server started at http://localhost:${por
 
 
 const movies = [
-  { title: "Jaws", year: 1975, rating: 8 },
-  { title: "Avatar", year: 2009, rating: 7.8 },
-  { title: "Brazil", year: 1985, rating: 8 },
-  { title: "الإرهاب والكباب", year: 1992, rating: 6.2 },
+  { id:1, title: "Jaws", year: 1975, rating: 8 },
+  { id:2,title: "Avatar", year: 2009, rating: 7.8 },
+  { id:3,title: "Brazil", year: 1985, rating: 8 },
+  { id:4,title: "الإرهاب والكباب", year: 1992, rating: 6.2 },
 ];
 
 // Add movie
@@ -116,3 +116,20 @@ app.get("/movies/read/by-title", (req, res) => {
     }),
   })
 })
+//step7
+app.get("/movies/read/id/:id", (req, res) => {
+  if (req.params.id < 1 || req.params.id > 4) {
+    res.send({
+      status: 404,
+      error: true,
+      message: `the movie ${req.params.id} does not exist`,
+    });
+  } else {
+    res.send({
+      status: 200,
+      data: movies.filter((movie) => {
+        return movie.id == req.params.id;
+      }),
+    });
+  }
+});
