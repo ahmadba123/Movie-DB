@@ -83,3 +83,36 @@ app.get("/movies/edit", (req, res) => {});
 // Delete movie
 
 app.get("/movies/delete", (req, res) => {});
+//by date
+app.get("/movies/read/by-date", (req, res) => {
+  res.send ({
+    status: 200,
+    data: movies.sort((a,b) => {
+      return a.year - b.year;
+    }),
+  })
+})
+// by rating
+app.get("/movies/read/by-rating", (req, res) => {
+  res.send ({
+    status: 200,
+    data: movies.sort((a,b) => {
+      return b.rating - a.rating;
+    }),
+  })
+})
+//by title
+app.get("/movies/read/by-title", (req, res) => {
+  res.send ({
+    status: 200,
+    data: movies.sort((a,b) => {
+      if (a.title < b.title) {
+        return -1;
+      }
+      if (a.title > b.title) {
+        return 1;
+      }
+      return 0;
+    }),
+  })
+})
